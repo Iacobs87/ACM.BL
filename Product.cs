@@ -18,19 +18,7 @@
         public int ProductId { get; set; }
         public string ProductName { get; set; }
 
-        //retrieve one product
-        public Product Retrieve(int productId)
-        {
-            //code that retrieves the defined product
-            return new Product();
-        }
-
-        //saves the current product
-        public bool Save()
-        {
-            //code that saves the defined product
-            return true;
-        }
+       
 
         //Validates the product data
         public bool Validate()
