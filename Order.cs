@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ACM.BL
 {
     public class Order
     {
-        public Order()
+        public Order(): this(0)
         {
                 
         }
@@ -12,12 +13,14 @@ namespace ACM.BL
         public Order(int orderId)
         {
             OrderId = orderId;
+            OrderItems = new List<OrderItem>();
         }
 
+        public int CustomerId { get; set; }
+        public int ShippingAddressId { get; set; }
         public DateTimeOffset? OrderDate { get; set; }
         public int OrderId { get; private set; }
-
-       
+        public List<OrderItem> OrderItems { get; set; }
 
         //validates the order data
 

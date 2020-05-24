@@ -1,7 +1,14 @@
-﻿namespace ACM.BL
+﻿using System.Linq;
+
+namespace ACM.BL
 {
     public class CustomerRepository
     {
+        public CustomerRepository()
+        {
+            addressRepository = new AddressRepository();
+        }
+        private AddressRepository addressRepository { get; set; }
 
         //retrieve one customer
         public Customer Retrieve(int customerId)
@@ -17,6 +24,7 @@
                 customer.EmailAddress = "fbaggins@hobbiton.me";
                 customer.FirstName = "Frodo";
                 customer.LastName = "Baggins";
+                customer.AddressList = addressRepository.RetrieveByCusomerId(customerId).ToList();
             }
             return customer;
         }
