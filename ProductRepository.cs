@@ -1,4 +1,6 @@
-﻿namespace ACM.BL
+﻿using System;
+
+namespace ACM.BL
 {
 
     public class ProductRepository
@@ -20,13 +22,37 @@
                 product.CurrentPrice = 15.96M;
             }
 
+            Object myobject = new Object();
+            Console.WriteLine($"Object: {myobject.ToString()}");
+            Console.WriteLine($"Product: {product.ToString()}");
+
             return product;     
         }
 
         public bool Save(Product product)
         {
-            //code that saves the passed product
-            return true;
+            var success = true;
+
+            if (product.HasChanges)
+            {
+                if (product.IsValid)
+                {
+                    if (product.IsNew)
+                    {
+                        //call an insert stored procedure
+                    }
+                    else
+                    {
+                        //call an update stored procedure
+                    }
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+
+            return success;
         }
     }
 }

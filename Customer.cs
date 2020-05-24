@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-    public class Customer
+    public class Customer : EntityBase
     {
         public Customer():this(0)
         {
@@ -60,9 +60,11 @@ namespace ACM.BL
         public int CustomerId { get; private set; }
         public static int InstanceCount { get; set; }
         public int CustomerType { get; set; }
+        public override string ToString() => FullName;
+
 
         // Validates the customers data
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
 
