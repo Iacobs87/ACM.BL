@@ -69,9 +69,28 @@ namespace ACM.BL
         //saves the current address
         public bool Save(Address address)
         {
-            //code that save the passed in address
+            var success = true;
 
-            return true;
+            if (address.HasChanges)
+            {
+                if (address.IsValid)
+                {
+                    if (address.IsNew)
+                    {
+                        //call an insert stored procedure
+                    }
+                    else
+                    {
+                        //call an update stored procedure
+                    }
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+
+            return success;
         }
     }
 }
